@@ -18,34 +18,89 @@ python -m http.server 8080
 
 There are no build, lint, or test commands.
 
-## Architecture
-
-The site is split into independent page modules, each with its own CSS file:
+## Page Map
 
 | Page | HTML | CSS | JS |
 |---|---|---|---|
 | Landing / home | `index.html` | `style.css` | `script.js` |
 | Course catalog | `cursos.html` | `cursos.css` | `cursos.js` |
+| Lesson player | `aulas.html` | `aulas.css` | `aulas.js` |
 | Login | `login.html` | `auth.css` | `auth.js` |
 | Register | `registro.html` | `auth.css` | `auth.js` |
-| Checkout | `checkout.html` | `checkout.css` | — |
+| Checkout | `checkout.html` | `checkout.css` | `checkout.js` |
+| My account | `conta.html` | `conta.css` | `conta.js` |
+| My courses | `meus-cursos.html` | `meus-cursos.css` | `meus-cursos.js` |
+| Search | `pesquisar.html` | `pesquisar.css` | `pesquisar.js` |
+| Community | `comunidade.html` | `comunidade.css` | `comunidade.js` |
+| Admin panel | `admin/index.html` | `admin/admin.css` | `admin/admin.js` |
+| Shared header | — | `tk-header.css` | `tk-header.js` |
 
-**Auth flow** (`auth.js`): Supabase JS SDK (loaded from CDN) is initialized via `supabase-config.js`, which exposes credentials on `window.TIKURA_SUPABASE`. On login success, redirects to `cursos.html`; on register success, prompts email confirmation.
+## Architecture
 
-**Supabase config**: credentials live in `supabase-config.js` (public anon key, safe to commit). The `.env` / `.env.example` files are reference-only — they are not consumed by any JS.
+### Data layer — `database.js`
+
+All pages load `database.js`, which exposes `window.TikuraDB`. This is the single data access layer:
+
+- `TikuraDB.getClient()` — returns a singleton Supabase client, or `null` if config is missing
+- `TikuraDB.getCourses()` — fetches published courses; falls back to `fallbackCourses` array if Supabase is unreachable
+- `TikuraDB.getCourseWithLessons(slug)` — fetches course + modules + lessons + per-user watch progress
+- `TikuraDB.getMyCourses(userId)` — enrollments + completion percentages
+- `TikuraDB.requireUser()` — redirects to `login.html` if not authenticated; upserts profile row on every call
+- `TikuraDB.createCheckoutOrder(payload)` — inserts into `checkout_orders`
+- Community: `getCommunityPosts`, `createCommunityPost`, `setCommunityLike`
+- Helpers: `escapeHtml`, `getInitials`, `normalizeCourse`, `timeAgo`
+
+**Fallback pattern**: every async method that hits Supabase silently falls back to local static data when the client is null or the query errors. Pages are fully functional without a live database.
+
+### Supabase config — `supabase-config.js`
+
+Exposes credentials on `window.TIKURA_SUPABASE = { url, anonKey }`. Safe to commit (public anon key). The `.env` / `.env.example` files are reference-only and are not read by any JS.
+
+### Shared header — `tk-header.js`
+
+Authenticated pages (cursos, aulas, conta, meus-cursos, pesquisar, comunidade) include `tk-header.css` and `tk-header.js`. The script:
+1. Marks the active nav link based on `location.pathname`
+2. Queries `profiles.avatar_url` from Supabase and displays the photo, or falls back to initials
+
+`login.html` intentionally does **not** include the shared header.
+
+### Auth flow — `auth.js`
+
+Wires up forms identified by `data-auth-form="login"` and `data-auth-form="register"`. Status messages use `[data-auth-status]` elements (hidden by default). On login success → redirects to `cursos.html`; on register success → prompts email confirmation.
+
+### Lesson player — `aulas.html`
+
+Reads `?curso=<slug>` from the URL. Calls `TikuraDB.getCourseWithLessons(slug)` to render modules/lessons. Calls `TikuraDB.markLessonWatched(lessonId)` on playback. Lessons with IDs starting with `local-` are fallback data and do not write to Supabase.
+
+### Admin panel — `admin/index.html`
+
+Requires `profiles.role = 'admin'`. Manages courses (CRUD), orders, and webhook configuration. Publishing a course sends a POST to a configurable webhook URL (stored in `localStorage`).
+
+### Carousel scroll — `cursos.html`
+
+The `.course-track` uses `transform: translateX` driven by JS (not CSS `overflow` scroll). The wrapper `.course-track-wrap` uses `overflow-x: clip` (not `hidden`) so that hover panels can expand downward without being clipped — `overflow-x: clip` does not force `overflow-y` to `auto`, unlike `overflow-x: hidden/auto/scroll`.
+
+### Avatar upload — `conta.js`
+
+Uses Cropper.js (CDN) for in-browser crop before upload. Uploads to Supabase Storage bucket `avatars` at path `{userId}/avatar.jpg`. Saves the **clean URL** (without cache-buster) to `profiles.avatar_url`; adds `?t=Date.now()` only at display time.
 
 ## CSS Naming Conventions
 
-- `index.html` / `style.css` use the `tk-` prefix (e.g., `tk-hero-fw`, `tk-btn-red`).
-- `cursos.html` / `cursos.css` use the `course-` prefix.
-- `login.html` / `registro.html` / `auth.css` use the `auth-` prefix.
-- `checkout.html` / `checkout.css` use the `checkout-` prefix.
+- `index.html` / `style.css` → `tk-` prefix (e.g. `tk-hero-fw`, `tk-btn-red`)
+- `cursos.html` / `cursos.css` → `course-` prefix
+- `login.html` / `registro.html` / `auth.css` → `auth-` prefix
+- `checkout.html` / `checkout.css` → `checkout-` prefix
+- `conta.html` / `conta.css` → `conta-` prefix
+- `admin/` → `adm-` prefix
+- Shared header → `tkh-` prefix
 
-Keep naming consistent when adding new elements to avoid cross-file collisions.
+## Database Schema (Supabase)
 
-## Key Patterns
+Key tables: `profiles`, `courses`, `course_modules`, `lessons`, `enrollments`, `lesson_progress`, `checkout_orders`, `community_posts`, `community_likes`.
 
-- Auth forms are identified by `data-auth-form="login"` / `data-auth-form="register"` attributes; `auth.js` wires them up automatically.
-- Status messages use `[data-auth-status]` elements (hidden by default, shown on error/success).
-- Horizontal scrolling carousels use `data-scroll="prev"` / `data-scroll="next"` buttons paired with a `.course-track` container.
-- Hero slideshow in `index.html` uses `.tk-h-slide` elements with `.active` class toggled by `script.js`; auto-advances every 6 seconds.
+The `profiles` table requires an `avatar_url text` column that is **not in the base schema file** — add it manually:
+```sql
+alter table public.profiles add column if not exists avatar_url text;
+```
+
+Run `supabase-schema.sql` in the Supabase SQL Editor to bootstrap the schema and seed courses. All tables have RLS enabled; see the schema file for policies.
