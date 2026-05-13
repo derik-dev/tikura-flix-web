@@ -300,29 +300,39 @@
     async function getCommunityPosts(userId) {
         const sb = getClient();
         if (!sb) {
-            return fallbackPosts;
+            return [];
         }
         const { data: posts, error } = await sb
             .from("community_posts")
-            .select("id, user_id, body, created_at, profiles(full_name)")
+            .select("id, user_id, body, created_at")
             .order("created_at", { ascending: false })
             .limit(50);
 
         if (error || !posts) {
-            return fallbackPosts;
+            return [];
         }
 
         const postIds = posts.map((post) => post.id);
-        const { data: likes } = postIds.length
-            ? await sb.from("community_likes").select("post_id, user_id").in("post_id", postIds)
-            : { data: [] };
+        const userIds = [...new Set(posts.map((post) => post.user_id).filter(Boolean))];
+
+        const [likesResult, profilesResult] = await Promise.all([
+            postIds.length
+                ? sb.from("community_likes").select("post_id, user_id").in("post_id", postIds)
+                : Promise.resolve({ data: [] }),
+            userIds.length
+                ? sb.from("profiles").select("id, full_name").in("id", userIds)
+                : Promise.resolve({ data: [] })
+        ]);
+
+        const likes = likesResult.data || [];
+        const profileMap = Object.fromEntries((profilesResult.data || []).map((p) => [p.id, p.full_name]));
 
         return posts.map((post) => {
-            const postLikes = (likes || []).filter((like) => like.post_id === post.id);
+            const postLikes = likes.filter((like) => like.post_id === post.id);
             return {
                 id: post.id,
                 user_id: post.user_id,
-                author_name: post.profiles && post.profiles.full_name ? post.profiles.full_name : "Membro Tikura",
+                author_name: profileMap[post.user_id] || "Membro Tikura",
                 body: post.body,
                 created_at: post.created_at,
                 likes_count: postLikes.length,

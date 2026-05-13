@@ -13,81 +13,126 @@
         <nav class="tkh-nav">
             <a href="meus-cursos.html">Meus cursos</a>
             <a href="pesquisar.html">Pesquisar</a>
-            <a href="comunidade.html">Comunidades</a>
+            <a href="comunidade.html" class="tkh-active">Comunidade</a>
         </nav>
         <a href="conta.html" class="tkh-user" id="tkh-user" aria-label="Minha conta">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
         </a>
     </header>
 
-    <main class="com-main">
-        <div class="com-layout">
+    <div class="com-layout">
 
-            <!-- Feed -->
-            <div class="com-feed">
-                <div class="com-page-head">
-                    <h1>Comunidade</h1>
-                    <p>Acompanhe comunicados, avisos e conteúdos publicados pela administradora.</p>
+        <!-- Feed central -->
+        <main class="com-main">
+
+            <!-- Hero -->
+            <section class="com-hero">
+                <div class="com-hero-text">
+                    <h1>Comunidade <span>Tikura Flix</span></h1>
+                    <p>Aprenda, compartilhe experiências e evolua junto com outros alunos e praticantes.</p>
+                    <div class="com-hero-stats">
+                        <div class="com-stat">
+                            <strong id="com-stat-members">—</strong>
+                            <span>membros</span>
+                        </div>
+                        <div class="com-stat-sep"></div>
+                        <div class="com-stat">
+                            <strong id="com-stat-posts">—</strong>
+                            <span>publicações</span>
+                        </div>
+                        <div class="com-stat-sep"></div>
+                        <div class="com-stat">
+                            <strong class="com-stat-live">
+                                <span class="com-live-dot"></span>ao vivo
+                            </strong>
+                            <span>atualizado agora</span>
+                        </div>
+                    </div>
                 </div>
+                <div class="com-hero-badge">
+                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <span>Comunidade ativa</span>
+                </div>
+            </section>
 
-                <!-- Posts -->
-                <article class="com-post">
-                    <div class="com-post-header">
-                        <div class="com-post-avatar" style="background:#e50914">VT</div>
-                        <div>
-                            <strong>Vanessa Tikura</strong>
-                            <span class="com-post-time">há 2 horas</span>
-                        </div>
-                    </div>
-                    <p class="com-post-body">Bem-vindas ao espaço da comunidade Tikura Flix. Por aqui vou compartilhar avisos importantes, orientações de estudo e novidades sobre as imersões.</p>
-                </article>
+            <!-- Feed de posts -->
+            <div class="com-feed-list" id="com-feed-list" role="feed" aria-live="polite"></div>
 
-                <article class="com-post">
-                    <div class="com-post-header">
-                        <div class="com-post-avatar" style="background:#e50914">VT</div>
-                        <div>
-                            <strong>Vanessa Tikura</strong>
-                            <span class="com-post-time">há 5 horas</span>
-                        </div>
-                    </div>
-                    <p class="com-post-body">Nova orientação: organize seu caderno de práticas antes de iniciar a próxima aula. Anote percepções, dúvidas e sinais que aparecerem durante a semana.</p>
-                </article>
-
-                <article class="com-post">
-                    <div class="com-post-header">
-                        <div class="com-post-avatar" style="background:#e50914">VT</div>
-                        <div>
-                            <strong>Vanessa Tikura</strong>
-                            <span class="com-post-time">ontem</span>
-                        </div>
-                    </div>
-                    <p class="com-post-body">Lembrete para a Imersão das Juremas: reserve um momento tranquilo para assistir às aulas de ervas e faça as práticas apenas quando estiver com presença e cuidado.</p>
-                </article>
+            <!-- Skeleton loading -->
+            <div class="com-skeletons" id="com-skeletons">
+                <div class="com-skeleton-card"></div>
+                <div class="com-skeleton-card"></div>
+                <div class="com-skeleton-card"></div>
             </div>
 
-            <!-- Sidebar direita -->
-            <aside class="com-sidebar">
-                <div class="com-sidebar-card">
-                    <h3>Sobre a comunidade</h3>
-                    <p>Um espaço de comunicados para acompanhar novidades, avisos e orientações da administradora da Tikura Flix.</p>
-                    <ul class="com-stats">
-                        <li><strong>2.480</strong> membros</li>
-                        <li><strong>3</strong> comunicados recentes</li>
-                    </ul>
-                </div>
-                <div class="com-sidebar-card">
-                    <h3>Tópicos populares</h3>
-                    <ul class="com-topics">
-                        <li><a href="pesquisar.html?q=juremas">#JuremasForever</a></li>
-                        <li><a href="pesquisar.html?q=cigano">#PovoCigano</a></li>
-                        <li><a href="pesquisar.html?q=magia">#MagiaDiária</a></li>
-                        <li><a href="pesquisar.html?q=ervas">#ErvasSagradas</a></li>
-                        <li><a href="pesquisar.html?q=imersao">#VivênciaEspiritual</a></li>
-                    </ul>
-                </div>
-            </aside>
-        </div>
-    </main>
+            <p class="com-empty" id="com-empty" hidden>Nenhuma publicação ainda.</p>
+        </main>
+
+        <!-- Sidebar direita -->
+        <aside class="com-sidebar-right">
+
+            <div class="com-widget">
+                <h3 class="com-widget-title">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    Top membros
+                </h3>
+                <ul class="com-top-list" id="com-top-list">
+                    <li class="com-top-item">
+                        <span class="com-top-rank gold">1</span>
+                        <div class="com-top-avatar">V</div>
+                        <div class="com-top-info"><strong>Vanessa Tikura</strong><span>Instrutora</span></div>
+                    </li>
+                    <li class="com-top-item">
+                        <span class="com-top-rank silver">2</span>
+                        <div class="com-top-avatar">M</div>
+                        <div class="com-top-info"><strong>Maria Clara</strong><span>Membro</span></div>
+                    </li>
+                    <li class="com-top-item">
+                        <span class="com-top-rank bronze">3</span>
+                        <div class="com-top-avatar">J</div>
+                        <div class="com-top-info"><strong>Juliana F.</strong><span>Membro</span></div>
+                    </li>
+                    <li class="com-top-item">
+                        <span class="com-top-rank">4</span>
+                        <div class="com-top-avatar">R</div>
+                        <div class="com-top-info"><strong>Renata Pires</strong><span>Membro</span></div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="com-widget">
+                <h3 class="com-widget-title">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Próximos eventos
+                </h3>
+                <ul class="com-events-list">
+                    <li class="com-event-item">
+                        <div class="com-event-date"><strong>23</strong><span>Mai</span></div>
+                        <div class="com-event-info">
+                            <strong>Roda de Juremas ao vivo</strong>
+                            <span>19h · Transmissão exclusiva</span>
+                        </div>
+                    </li>
+                    <li class="com-event-item">
+                        <div class="com-event-date"><strong>01</strong><span>Jun</span></div>
+                        <div class="com-event-info">
+                            <strong>Convenção das Bruxas</strong>
+                            <span>15h · Online</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="com-widget com-widget-courses">
+                <h3 class="com-widget-title">
+                    <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    Explore cursos
+                </h3>
+                <a href="cursos.html" class="com-courses-btn">Ver catálogo completo</a>
+            </div>
+
+        </aside>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="supabase-config.js"></script>

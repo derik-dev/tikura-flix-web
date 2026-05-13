@@ -87,9 +87,9 @@ function renderRow(title, courses, large) {
                     <button type="button" class="course-scroll-btn" data-scroll="next" aria-label="Avancar lista">&#10095;</button>
                 </div>
             </div>
-            <div class="course-track">
+            <div class="course-track-wrap"><div class="course-track">
                 ${courses.map((course) => renderCard(course, large)).join("")}
-            </div>
+            </div></div>
         </div>
     `;
 }
@@ -153,25 +153,36 @@ function enhanceCourseCards() {
 
 function bindScrollControls() {
     document.querySelectorAll(".course-row").forEach((row) => {
+        const wrap = row.querySelector(".course-track-wrap");
         const track = row.querySelector(".course-track");
         const prev = row.querySelector("[data-scroll='prev']");
         const next = row.querySelector("[data-scroll='next']");
 
-        if (!track || !prev || !next) {
+        if (!track || !wrap || !prev || !next) {
             return;
         }
 
-        const scrollCards = (direction) => {
-            const firstCard = track.querySelector(".course-card");
-            const distance = firstCard ? firstCard.offsetWidth * 2 : 600;
+        let offset = 0;
 
-            track.scrollBy({
-                left: direction * distance,
-                behavior: "smooth"
-            });
+        const getStep = () => {
+            const card = track.querySelector(".course-card");
+            return card ? (card.offsetWidth + 8) * 2 : 600;
         };
 
-        prev.addEventListener("click", () => scrollCards(-1));
-        next.addEventListener("click", () => scrollCards(1));
+        const getMax = () => Math.max(0, track.scrollWidth - wrap.offsetWidth);
+
+        const applyOffset = () => {
+            track.style.transform = `translateX(-${offset}px)`;
+        };
+
+        prev.addEventListener("click", () => {
+            offset = Math.max(0, offset - getStep());
+            applyOffset();
+        });
+
+        next.addEventListener("click", () => {
+            offset = Math.min(getMax(), offset + getStep());
+            applyOffset();
+        });
     });
 }

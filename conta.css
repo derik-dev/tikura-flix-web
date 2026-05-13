@@ -19,10 +19,51 @@ a{color:inherit;text-decoration:none;}
 
 /* Profile bar */
 .conta-profile-bar{display:flex;align-items:center;gap:20px;margin-bottom:48px;flex-wrap:wrap;}
-.conta-avatar{width:72px;height:72px;border-radius:50%;background:#e50914;display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:700;flex-shrink:0;letter-spacing:1px;}
+
+/* Avatar com upload */
+.conta-avatar-wrap{
+    position:relative;flex-shrink:0;
+    width:80px;height:80px;border-radius:50%;
+    cursor:pointer;display:block;
+}
+.conta-avatar{
+    position:absolute;inset:0;border-radius:50%;
+    background:#e50914;display:flex;align-items:center;justify-content:center;
+    font-size:1.7rem;font-weight:700;letter-spacing:1px;
+    transition:opacity 0.2s;
+}
+.conta-avatar[hidden]{display:none!important;}
+.conta-avatar-img{
+    position:absolute;inset:0;width:100%;height:100%;border-radius:50%;
+    object-fit:cover;border:2px solid rgba(255,255,255,0.1);
+}
+.conta-avatar-img[hidden]{display:none!important;}
+.conta-avatar-overlay{
+    position:absolute;inset:0;border-radius:50%;
+    background:rgba(0,0,0,0.55);
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;transition:opacity 0.2s;
+}
+.conta-avatar-overlay svg{
+    width:22px;height:22px;stroke:#fff;fill:none;
+    stroke-width:2;stroke-linecap:round;stroke-linejoin:round;
+}
+.conta-avatar-wrap:hover .conta-avatar-overlay{opacity:1;}
+.conta-avatar-wrap:hover .conta-avatar{opacity:0.7;}
+.conta-avatar-wrap:hover .conta-avatar-img{opacity:0.7;}
+
+/* Upload loading state */
+.conta-avatar-wrap.uploading .conta-avatar-overlay{opacity:1;background:rgba(0,0,0,0.7);}
+.conta-avatar-wrap.uploading .conta-avatar-overlay svg{
+    animation:spin-avatar 0.8s linear infinite;
+    stroke:#e50914;
+}
+@keyframes spin-avatar{to{transform:rotate(360deg);}}
+
 .conta-profile-info{flex:1;}
 .conta-profile-info h1{margin:0 0 4px;font-size:1.5rem;font-weight:700;}
 .conta-profile-info p{margin:0;font-size:0.9rem;color:rgba(255,255,255,0.55);}
+.conta-avatar-hint{font-size:0.75rem;color:rgba(255,255,255,0.3);margin-top:5px;display:block;}
 .conta-logout-btn{margin-left:auto;padding:10px 22px;border-radius:6px;border:1px solid rgba(255,255,255,0.18);background:transparent;color:rgba(255,255,255,0.7);font-family:'Poppins',sans-serif;font-size:0.88rem;cursor:pointer;transition:border-color 0.2s,color 0.2s;}
 .conta-logout-btn:hover{border-color:#e50914;color:#e50914;}
 
@@ -55,6 +96,19 @@ a{color:inherit;text-decoration:none;}
 .conta-plan-features li{font-size:0.9rem;color:rgba(255,255,255,0.78);}
 .conta-upgrade-btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 24px;border-radius:6px;border:1px solid rgba(255,255,255,0.18);background:transparent;color:#fff;font-size:0.9rem;font-weight:600;transition:border-color 0.2s,background 0.2s;}
 .conta-upgrade-btn:hover{border-color:#e50914;background:rgba(229,9,20,0.08);}
+
+/* ── Modal de recorte ── */
+.crop-modal{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;padding:20px;}
+.crop-modal[hidden]{display:none!important;}
+.crop-modal-box{background:#111;border:1px solid rgba(255,255,255,0.1);border-radius:12px;width:100%;max-width:480px;overflow:hidden;display:flex;flex-direction:column;}
+.crop-modal-title{margin:0;padding:20px 24px 16px;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fff;}
+.crop-img-wrap{width:100%;height:340px;background:#000;overflow:hidden;}
+.crop-img-wrap img{display:block;max-width:100%;}
+.crop-modal-actions{display:flex;gap:12px;padding:16px 24px;justify-content:flex-end;border-top:1px solid rgba(255,255,255,0.07);}
+.crop-btn-cancel{padding:10px 22px;border-radius:6px;border:1px solid rgba(255,255,255,0.18);background:transparent;color:rgba(255,255,255,0.7);font-family:'Poppins',sans-serif;font-size:0.9rem;cursor:pointer;transition:border-color 0.2s,color 0.2s;}
+.crop-btn-cancel:hover{border-color:#fff;color:#fff;}
+.crop-btn-confirm{padding:10px 22px;border-radius:6px;border:none;background:#e50914;color:#fff;font-family:'Poppins',sans-serif;font-size:0.9rem;font-weight:700;cursor:pointer;transition:background 0.2s;}
+.crop-btn-confirm:hover{background:#b20710;}
 
 @media(max-width:860px){
     .conta-grid{grid-template-columns:1fr;}
