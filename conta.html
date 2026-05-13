@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Conta | Tikura Flix</title>
+    <link rel="stylesheet" href="conta.css">
+    <link rel="stylesheet" href="tk-header.css">
+</head>
+<body>
+    <header class="tkh">
+        <a href="cursos.html" class="tkh-logo">Tikura <span>Flix</span></a>
+        <nav class="tkh-nav">
+            <a href="meus-cursos.html">Meus cursos</a>
+            <a href="pesquisar.html">Pesquisar</a>
+            <a href="comunidade.html">Comunidades</a>
+        </nav>
+        <a href="conta.html" class="tkh-user" id="tkh-user" aria-label="Minha conta">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </a>
+    </header>
+
+    <main class="conta-main">
+
+        <!-- Perfil -->
+        <section class="conta-profile-bar">
+            <div class="conta-avatar" id="conta-avatar-initials">VT</div>
+            <div class="conta-profile-info">
+                <h1 id="conta-display-name">Carregando...</h1>
+                <p id="conta-display-email"></p>
+            </div>
+            <button class="conta-logout-btn" id="conta-logout">Sair da conta</button>
+        </section>
+
+        <div class="conta-grid">
+
+            <!-- Dados pessoais -->
+            <section class="conta-card">
+                <h2 class="conta-card-title">Dados pessoais</h2>
+                <form class="conta-form" id="conta-form-perfil">
+                    <div class="conta-field">
+                        <label for="conta-nome">Nome completo</label>
+                        <input type="text" id="conta-nome" placeholder="Seu nome">
+                    </div>
+                    <div class="conta-field">
+                        <label for="conta-email">E-mail</label>
+                        <input type="email" id="conta-email" placeholder="seu@email.com" disabled>
+                    </div>
+                    <div class="conta-field">
+                        <label for="conta-senha">Nova senha</label>
+                        <input type="password" id="conta-senha" placeholder="Deixe em branco para manter">
+                    </div>
+                    <div class="conta-field">
+                        <label for="conta-senha-confirm">Confirmar nova senha</label>
+                        <input type="password" id="conta-senha-confirm" placeholder="Repita a nova senha">
+                    </div>
+                    <p class="conta-status" id="conta-status-perfil" hidden></p>
+                    <button type="submit" class="conta-save-btn">Salvar alterações</button>
+                </form>
+            </section>
+
+            <!-- Plano -->
+            <section class="conta-card">
+                <h2 class="conta-card-title">Meu plano</h2>
+                <div class="conta-plan-badge">
+                    <span class="conta-plan-icon">&#9733;</span>
+                    <div>
+                        <strong>Tikura Flix — Assinante</strong>
+                        <p>Acesso completo a todos os cursos e imersões</p>
+                    </div>
+                </div>
+                <ul class="conta-plan-features">
+                    <li>&#10003; Todos os cursos e imersões</li>
+                    <li>&#10003; Novos conteúdos todo mês</li>
+                    <li>&#10003; Apostilas e materiais complementares</li>
+                    <li>&#10003; Acesso pelo app e web</li>
+                </ul>
+                <a href="checkout.html" class="conta-upgrade-btn">Gerenciar assinatura</a>
+            </section>
+
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="database.js"></script>
+    <script src="conta.js"></script>
+    <script src="tk-header.js"></script>
+</body>
+</html>

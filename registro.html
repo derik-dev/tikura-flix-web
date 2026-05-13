@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | Tikura Flix</title>
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="tk-header.css">
+</head>
+<body>
+    <header class="tkh">
+        <a href="index.html" class="tkh-logo">Tikura <span>Flix</span></a>
+        <nav class="tkh-nav">
+            <a href="meus-cursos.html">Meus cursos</a>
+            <a href="pesquisar.html">Pesquisar</a>
+            <a href="comunidade.html">Comunidades</a>
+        </nav>
+        <a href="conta.html" class="tkh-user" id="tkh-user" aria-label="Minha conta">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </a>
+    </header>
+
+    <main class="auth-page">
+        <section class="auth-card" aria-label="Criar conta na plataforma">
+            <span class="auth-kicker">Area de membros</span>
+            <h1>Cadastro</h1>
+            <p>Crie seu acesso para entrar nas imersoes, materiais e comunidade Tikura Flix.</p>
+
+            <form class="auth-form" action="#" method="post" data-auth-form="register">
+                <label>
+                    Nome completo
+                    <input type="text" name="nome" placeholder="Seu nome" required>
+                </label>
+
+                <label>
+                    E-mail
+                    <input type="email" name="email" placeholder="seuemail@exemplo.com" required>
+                </label>
+
+                <label>
+                    Senha
+                    <input type="password" name="senha" placeholder="Minimo de 6 caracteres" minlength="6" required>
+                </label>
+
+                <label>
+                    Confirmar senha
+                    <input type="password" name="confirmar_senha" placeholder="Repita sua senha" minlength="6" required>
+                </label>
+
+                <p class="auth-status" data-auth-status hidden></p>
+
+                <button type="submit" class="auth-submit">Criar conta</button>
+            </form>
+
+            <p class="auth-switch">Ja tem cadastro? <a href="login.html" class="auth-link">Entrar</a></p>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="auth.js"></script>
+    <script src="tk-header.js"></script>
+</body>
+</html>

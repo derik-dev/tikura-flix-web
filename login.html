@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Tikura Flix</title>
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="tk-header.css">
+</head>
+<body>
+    <header class="tkh">
+        <a href="index.html" class="tkh-logo">Tikura <span>Flix</span></a>
+        <nav class="tkh-nav">
+            <a href="meus-cursos.html">Meus cursos</a>
+            <a href="pesquisar.html">Pesquisar</a>
+            <a href="comunidade.html">Comunidades</a>
+        </nav>
+        <a href="conta.html" class="tkh-user" id="tkh-user" aria-label="Minha conta">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </a>
+    </header>
+
+    <main class="auth-page">
+        <section class="auth-card" aria-label="Entrar na plataforma">
+            <span class="auth-kicker">Area de membros</span>
+            <h1>Login</h1>
+            <p>Entre com seus dados para acessar suas imersoes, materiais e vivencias.</p>
+
+            <form class="auth-form" action="#" method="post" data-auth-form="login">
+                <label>
+                    E-mail
+                    <input type="email" name="email" placeholder="seuemail@exemplo.com" required>
+                </label>
+
+                <label>
+                    Senha
+                    <input type="password" name="senha" placeholder="Digite sua senha" required>
+                </label>
+
+                <div class="auth-row">
+                    <label class="auth-check">
+                        <input type="checkbox" name="lembrar">
+                        Lembrar acesso
+                    </label>
+                    <button type="button" class="auth-link auth-link-button" data-auth-reset>Esqueci minha senha</button>
+                </div>
+
+                <p class="auth-status" data-auth-status hidden></p>
+
+                <button type="submit" class="auth-submit">Entrar</button>
+            </form>
+
+            <p class="auth-switch">Ainda não tem conta? <a href="registro.html" class="auth-link">Criar cadastro</a></p>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="auth.js"></script>
+    <script src="tk-header.js"></script>
+</body>
+</html>

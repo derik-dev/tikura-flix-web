@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidade | Tikura Flix</title>
+    <link rel="stylesheet" href="comunidade.css">
+    <link rel="stylesheet" href="tk-header.css">
+</head>
+<body>
+    <header class="tkh">
+        <a href="cursos.html" class="tkh-logo">Tikura <span>Flix</span></a>
+        <nav class="tkh-nav">
+            <a href="meus-cursos.html">Meus cursos</a>
+            <a href="pesquisar.html">Pesquisar</a>
+            <a href="comunidade.html">Comunidades</a>
+        </nav>
+        <a href="conta.html" class="tkh-user" id="tkh-user" aria-label="Minha conta">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </a>
+    </header>
+
+    <main class="com-main">
+        <div class="com-layout">
+
+            <!-- Feed -->
+            <div class="com-feed">
+                <div class="com-page-head">
+                    <h1>Comunidade</h1>
+                    <p>Acompanhe comunicados, avisos e conteúdos publicados pela administradora.</p>
+                </div>
+
+                <!-- Posts -->
+                <article class="com-post">
+                    <div class="com-post-header">
+                        <div class="com-post-avatar" style="background:#e50914">VT</div>
+                        <div>
+                            <strong>Vanessa Tikura</strong>
+                            <span class="com-post-time">há 2 horas</span>
+                        </div>
+                    </div>
+                    <p class="com-post-body">Bem-vindas ao espaço da comunidade Tikura Flix. Por aqui vou compartilhar avisos importantes, orientações de estudo e novidades sobre as imersões.</p>
+                </article>
+
+                <article class="com-post">
+                    <div class="com-post-header">
+                        <div class="com-post-avatar" style="background:#e50914">VT</div>
+                        <div>
+                            <strong>Vanessa Tikura</strong>
+                            <span class="com-post-time">há 5 horas</span>
+                        </div>
+                    </div>
+                    <p class="com-post-body">Nova orientação: organize seu caderno de práticas antes de iniciar a próxima aula. Anote percepções, dúvidas e sinais que aparecerem durante a semana.</p>
+                </article>
+
+                <article class="com-post">
+                    <div class="com-post-header">
+                        <div class="com-post-avatar" style="background:#e50914">VT</div>
+                        <div>
+                            <strong>Vanessa Tikura</strong>
+                            <span class="com-post-time">ontem</span>
+                        </div>
+                    </div>
+                    <p class="com-post-body">Lembrete para a Imersão das Juremas: reserve um momento tranquilo para assistir às aulas de ervas e faça as práticas apenas quando estiver com presença e cuidado.</p>
+                </article>
+            </div>
+
+            <!-- Sidebar direita -->
+            <aside class="com-sidebar">
+                <div class="com-sidebar-card">
+                    <h3>Sobre a comunidade</h3>
+                    <p>Um espaço de comunicados para acompanhar novidades, avisos e orientações da administradora da Tikura Flix.</p>
+                    <ul class="com-stats">
+                        <li><strong>2.480</strong> membros</li>
+                        <li><strong>3</strong> comunicados recentes</li>
+                    </ul>
+                </div>
+                <div class="com-sidebar-card">
+                    <h3>Tópicos populares</h3>
+                    <ul class="com-topics">
+                        <li><a href="pesquisar.html?q=juremas">#JuremasForever</a></li>
+                        <li><a href="pesquisar.html?q=cigano">#PovoCigano</a></li>
+                        <li><a href="pesquisar.html?q=magia">#MagiaDiária</a></li>
+                        <li><a href="pesquisar.html?q=ervas">#ErvasSagradas</a></li>
+                        <li><a href="pesquisar.html?q=imersao">#VivênciaEspiritual</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="database.js"></script>
+    <script src="comunidade.js"></script>
+    <script src="tk-header.js"></script>
+</body>
+</html>

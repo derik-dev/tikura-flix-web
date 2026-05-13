@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:#0a0a0a;color:#fff;font-family:'Poppins',sans-serif;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+button{cursor:pointer;font-family:inherit;}
+
+/* ── Header ── */
+.aulas-header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:20px;padding:16px 5%;background:linear-gradient(180deg,rgba(10,10,10,0.97),rgba(10,10,10,0.82));border-bottom:1px solid rgba(255,255,255,0.07);backdrop-filter:blur(14px);}
+.aulas-back{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:#fff;flex-shrink:0;transition:background 0.2s;}
+.aulas-back:hover{background:rgba(255,255,255,0.18);}
+.aulas-back svg{width:20px;height:20px;fill:currentColor;}
+.aulas-logo{font-size:1.35rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;line-height:1;margin-right:auto;}
+.aulas-logo span{color:#e50914;}
+
+/* ── Layout ── */
+.aulas-main{display:grid;grid-template-columns:1fr 400px;min-height:100vh;padding-top:65px;}
+
+/* ── Player column ── */
+.aulas-player-col{display:flex;flex-direction:column;min-width:0;}
+
+.aulas-player{position:relative;width:100%;background:#000;aspect-ratio:16/9;}
+.aulas-player-thumb{position:absolute;inset:0;}
+.aulas-thumb-img{width:100%;height:100%;object-fit:cover;display:block;}
+.aulas-play-btn{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.36);border:none;color:#fff;transition:background 0.22s;}
+.aulas-play-btn:hover{background:rgba(0,0,0,0.52);}
+.aulas-play-btn svg{width:72px;height:72px;fill:rgba(255,255,255,0.92);filter:drop-shadow(0 4px 16px rgba(0,0,0,0.7));}
+.aulas-iframe{position:absolute;inset:0;width:100%;height:100%;border:none;}
+
+.aulas-episode-info{padding:28px 5% 40px;border-bottom:1px solid rgba(255,255,255,0.07);}
+.aulas-episode-meta{display:flex;align-items:center;gap:8px;margin-bottom:10px;font-size:0.82rem;color:#888;}
+.aulas-episode-label{color:#e50914;font-weight:700;text-transform:uppercase;font-size:0.78rem;letter-spacing:1px;}
+.aulas-episode-dot{color:#444;}
+.aulas-episode-title{font-family:'Cinzel',serif;font-size:clamp(1.3rem,2.4vw,2rem);font-weight:400;line-height:1.2;margin:0 0 14px;text-transform:uppercase;}
+.aulas-episode-desc{color:#bbb;font-size:0.97rem;line-height:1.65;margin:0 0 22px;max-width:680px;}
+.aulas-instructor{display:flex;align-items:center;gap:12px;}
+.aulas-instructor-avatar{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.14);}
+.aulas-instructor-name{display:block;font-size:0.9rem;font-weight:600;}
+.aulas-instructor-role{display:block;font-size:0.78rem;color:#777;}
+
+/* ── Sidebar ── */
+.aulas-sidebar{border-left:1px solid rgba(255,255,255,0.07);display:flex;flex-direction:column;overflow:hidden;}
+.aulas-sidebar-head{padding:24px 22px 18px;border-bottom:1px solid rgba(255,255,255,0.07);flex-shrink:0;}
+.aulas-course-title{font-family:'Cinzel',serif;font-size:1.05rem;font-weight:400;text-transform:uppercase;letter-spacing:0.5px;margin:0 0 6px;}
+.aulas-course-progress{font-size:0.8rem;color:#888;margin:0 0 10px;}
+.aulas-progress-bar{height:3px;background:rgba(255,255,255,0.12);border-radius:2px;overflow:hidden;}
+.aulas-progress-fill{display:block;height:100%;background:#e50914;border-radius:2px;transition:width 0.4s ease;}
+
+.aulas-modules{overflow-y:auto;flex:1;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.1) transparent;}
+.aulas-modules::-webkit-scrollbar{width:4px;}
+.aulas-modules::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px;}
+
+/* ── Module accordion ── */
+.aulas-module{border-bottom:1px solid rgba(255,255,255,0.06);}
+.aulas-module-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 22px;background:rgba(255,255,255,0.03);border:none;color:#fff;text-align:left;transition:background 0.2s;}
+.aulas-module-toggle:hover{background:rgba(255,255,255,0.07);}
+.aulas-module-name{font-size:0.88rem;font-weight:600;line-height:1.3;}
+.aulas-chevron{width:18px;height:18px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;color:#666;transition:transform 0.25s ease;}
+.aulas-module-toggle[aria-expanded="true"] .aulas-chevron{transform:rotate(180deg);}
+
+/* ── Episode list ── */
+.aulas-episode-list{list-style:none;margin:0;padding:0;}
+.aulas-ep-btn{width:100%;display:flex;align-items:center;gap:14px;padding:13px 22px;background:none;border:none;color:#ccc;text-align:left;transition:background 0.18s,color 0.18s;position:relative;}
+.aulas-ep-btn:hover{background:rgba(255,255,255,0.05);color:#fff;}
+.aulas-ep-btn.active{background:rgba(229,9,20,0.12);color:#fff;}
+.aulas-ep-btn.active::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:#e50914;border-radius:0 2px 2px 0;}
+.aulas-ep-num-badge{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:#888;}
+.aulas-ep-btn.active .aulas-ep-num-badge{background:rgba(229,9,20,0.3);color:#e50914;}
+.aulas-ep-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;}
+.aulas-ep-name{font-size:0.85rem;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.aulas-ep-time{font-size:0.75rem;color:#666;}
+.aulas-ep-btn.active .aulas-ep-name{font-weight:600;}
+.aulas-ep-check{width:16px;height:16px;stroke:#e50914;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+.aulas-ep-btn.watched .aulas-ep-num-badge{background:rgba(229,9,20,0.18);color:#fff;}
+
+/* ── Responsive ── */
+@media(max-width:1000px){
+    .aulas-main{grid-template-columns:1fr 340px;}
+}
+
+@media(max-width:760px){
+    .aulas-header{padding:14px 4%;gap:14px;}
+    .aulas-logo{font-size:1.1rem;}
+    .aulas-main{grid-template-columns:1fr;grid-template-rows:auto 1fr;}
+    .aulas-player-col{order:1;}
+    .aulas-sidebar{order:2;border-left:none;border-top:1px solid rgba(255,255,255,0.07);max-height:none;}
+    .aulas-modules{max-height:none;overflow-y:visible;}
+    .aulas-episode-info{padding:20px 4% 30px;}
+}
+
+@media(max-width:480px){
+    .aulas-play-btn svg{width:52px;height:52px;}
+    .aulas-episode-title{font-size:1.2rem;}
+    .aulas-module-toggle{padding:14px 16px;}
+    .aulas-ep-btn{padding:12px 16px;}
+    .aulas-sidebar-head{padding:18px 16px 14px;}
+}

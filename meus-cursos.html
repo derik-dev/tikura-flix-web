@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Cursos | Tikura Flix</title>
+    <link rel="stylesheet" href="meus-cursos.css">
+    <link rel="stylesheet" href="tk-header.css">
+</head>
+<body>
+    <header class="tkh">
+        <a href="cursos.html" class="tkh-logo">Tikura <span>Flix</span></a>
+        <nav class="tkh-nav">
+            <a href="meus-cursos.html">Meus cursos</a>
+            <a href="pesquisar.html">Pesquisar</a>
+            <a href="comunidade.html">Comunidades</a>
+        </nav>
+        <a href="conta.html" class="tkh-user" id="tkh-user" aria-label="Minha conta">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </a>
+    </header>
+
+    <main class="mc-main">
+        <div class="mc-page-head">
+            <h1>Meus Cursos</h1>
+            <p>Continue de onde parou na sua jornada espiritual.</p>
+        </div>
+
+        <!-- Em andamento -->
+        <section class="mc-section">
+            <h2 class="mc-section-title">Em andamento</h2>
+            <div class="mc-grid" id="mc-em-andamento">
+                <a href="aulas.html" class="mc-card">
+                    <div class="mc-thumb">
+                        <img src="http://www.tikura.com.br/wp-content/uploads/2026/02/c1.jpg" alt="Imersão das Juremas">
+                        <div class="mc-play"><span>&#9654;</span></div>
+                    </div>
+                    <div class="mc-card-body">
+                        <h3>Imersão das Juremas</h3>
+                        <p class="mc-card-meta">Módulo 2 · Aula 4 de 12</p>
+                        <div class="mc-progress-bar"><span style="width:33%"></span></div>
+                        <span class="mc-pct">33% concluído</span>
+                    </div>
+                </a>
+                <a href="aulas.html" class="mc-card">
+                    <div class="mc-thumb">
+                        <img src="http://www.tikura.com.br/wp-content/uploads/2026/02/c2.jpg" alt="Imersão da Magia de Hécate">
+                        <div class="mc-play"><span>&#9654;</span></div>
+                    </div>
+                    <div class="mc-card-body">
+                        <h3>Imersão da Magia de Hécate</h3>
+                        <p class="mc-card-meta">Módulo 1 · Aula 2 de 10</p>
+                        <div class="mc-progress-bar"><span style="width:20%"></span></div>
+                        <span class="mc-pct">20% concluído</span>
+                    </div>
+                </a>
+                <a href="aulas.html" class="mc-card">
+                    <div class="mc-thumb">
+                        <img src="http://www.tikura.com.br/wp-content/uploads/2026/02/c8.jpg" alt="Imersão Povo Cigano">
+                        <div class="mc-play"><span>&#9654;</span></div>
+                    </div>
+                    <div class="mc-card-body">
+                        <h3>Imersão Povo Cigano</h3>
+                        <p class="mc-card-meta">Módulo 3 · Aula 7 de 9</p>
+                        <div class="mc-progress-bar"><span style="width:77%"></span></div>
+                        <span class="mc-pct">77% concluído</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Concluídos -->
+        <section class="mc-section">
+            <h2 class="mc-section-title">Concluídos</h2>
+            <div class="mc-grid">
+                <a href="aulas.html" class="mc-card">
+                    <div class="mc-thumb">
+                        <img src="http://www.tikura.com.br/wp-content/uploads/2026/02/c9.jpg" alt="Roda Cigana">
+                        <div class="mc-play"><span>&#9654;</span></div>
+                        <span class="mc-badge-done">Concluído</span>
+                    </div>
+                    <div class="mc-card-body">
+                        <h3>Roda Cigana</h3>
+                        <p class="mc-card-meta">8 aulas · 4h 20min</p>
+                        <div class="mc-progress-bar"><span style="width:100%"></span></div>
+                        <span class="mc-pct">100% concluído</span>
+                    </div>
+                </a>
+                <a href="aulas.html" class="mc-card">
+                    <div class="mc-thumb">
+                        <img src="http://www.tikura.com.br/wp-content/uploads/2026/02/c5.jpg" alt="A Sacerdotisa">
+                        <div class="mc-play"><span>&#9654;</span></div>
+                        <span class="mc-badge-done">Concluído</span>
+                    </div>
+                    <div class="mc-card-body">
+                        <h3>A Sacerdotisa</h3>
+                        <p class="mc-card-meta">6 aulas · 3h 10min</p>
+                        <div class="mc-progress-bar"><span style="width:100%"></span></div>
+                        <span class="mc-pct">100% concluído</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="database.js"></script>
+    <script src="meus-cursos.js"></script>
+    <script src="tk-header.js"></script>
+</body>
+</html>

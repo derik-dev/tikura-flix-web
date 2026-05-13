@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imersão das Juremas | Tikura Flix</title>
+    <link rel="stylesheet" href="aulas.css">
+    <link rel="stylesheet" href="tk-header.css">
+</head>
+<body>
+
+<header class="tkh">
+    <a href="cursos.html" class="tkh-logo">Tikura <span>Flix</span></a>
+    <nav class="tkh-nav">
+        <a href="meus-cursos.html">Meus cursos</a>
+        <a href="pesquisar.html">Pesquisar</a>
+        <a href="comunidade.html">Comunidades</a>
+    </nav>
+    <a href="conta.html" class="tkh-user" id="tkh-user" aria-label="Minha conta">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+    </a>
+</header>
+
+<main class="aulas-main">
+
+    <div class="aulas-player-col">
+
+        <div class="aulas-player">
+            <div class="aulas-player-thumb">
+                <img src="https://img.youtube.com/vi/RylLBe8yAwc/hqdefault.jpg" alt="Video da aula" class="aulas-thumb-img" id="aulas-thumb">
+                <button class="aulas-play-btn" id="aulas-play-btn" aria-label="Assistir aula">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+            </div>
+            <iframe
+                class="aulas-iframe"
+                id="aulas-iframe"
+                src=""
+                title="Player de aula"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                hidden>
+            </iframe>
+        </div>
+
+        <div class="aulas-episode-info">
+            <div class="aulas-episode-meta">
+                <span class="aulas-episode-label" id="aulas-module-label">Módulo 1</span>
+                <span class="aulas-episode-dot" aria-hidden="true">·</span>
+                <span class="aulas-episode-num" id="aulas-ep-num">Aula 1</span>
+                <span class="aulas-episode-dot" aria-hidden="true">·</span>
+                <span class="aulas-episode-dur" id="aulas-ep-dur">48 min</span>
+            </div>
+            <h1 class="aulas-episode-title" id="aulas-ep-title">Abertura e introdução às Juremas</h1>
+            <p class="aulas-episode-desc" id="aulas-ep-desc">Uma viagem ao universo das Juremas — origem, significado e a presença desse povo sagrado na espiritualidade brasileira. Nesta aula de abertura, Vanessa Tikura apresenta os fundamentos que guiarão toda a imersão.</p>
+            <div class="aulas-instructor">
+                <img src="http://www.tikura.com.br/wp-content/uploads/2026/02/allc.png" alt="Vanessa Tikura" class="aulas-instructor-avatar">
+                <div>
+                    <span class="aulas-instructor-name">Vanessa Tikura</span>
+                    <span class="aulas-instructor-role">Instrutora</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <aside class="aulas-sidebar">
+        <div class="aulas-sidebar-head">
+            <h2 class="aulas-course-title">Imersão das Juremas</h2>
+            <p class="aulas-course-progress"><span id="aulas-progress-count">1</span> de 12 aulas assistidas</p>
+            <div class="aulas-progress-bar"><span class="aulas-progress-fill" id="aulas-progress-fill" style="width:8%"></span></div>
+        </div>
+
+        <div class="aulas-modules" id="aulas-modules">
+
+            <div class="aulas-module" data-module="0">
+                <button class="aulas-module-toggle" aria-expanded="true">
+                    <span class="aulas-module-name">Módulo 1 — As Juremas Sagradas</span>
+                    <svg class="aulas-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <ul class="aulas-episode-list" role="list">
+                    <li>
+                        <button class="aulas-ep-btn active" data-ep="0"
+                            data-title="Abertura e introdução às Juremas"
+                            data-desc="Uma viagem ao universo das Juremas — origem, significado e a presença desse povo sagrado na espiritualidade brasileira."
+                            data-dur="48 min"
+                            data-module="Módulo 1"
+                            data-num="Aula 1"
+                            data-thumb="https://img.youtube.com/vi/RylLBe8yAwc/hqdefault.jpg"
+                            data-video="https://www.youtube.com/embed/RylLBe8yAwc?autoplay=1">
+                            <span class="aulas-ep-num-badge">1</span>
+                            <span class="aulas-ep-info">
+                                <span class="aulas-ep-name">Abertura e introdução às Juremas</span>
+                                <span class="aulas-ep-time">48 min</span>
+                            </span>
+                            <svg class="aulas-ep-check" viewBox="0 0 24 24" aria-label="Assistido"><path d="M20 6 9 17l-5-5"/></svg>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="aulas-ep-btn" data-ep="1"
+                            data-title="O povo das Juremas e suas entidades"
+                            data-desc="Conheça as principais entidades do povo das Juremas, suas forças, missões e como se manifestam no culto."
+                            data-dur="54 min"
+                            data-module="Módulo 1"
+                            data-num="Aula 2"
+                            data-thumb="https://img.youtube.com/vi/RylLBe8yAwc/hqdefault.jpg"
+                            data-video="https://www.youtube.com/embed/RylLBe8yAwc?autoplay=1">
+                            <span class="aulas-ep-num-badge">2</span>
+                            <span class="aulas-ep-info">
+                                <span class="aulas-ep-name">O povo das Juremas e suas entidades</span>
+                                <span class="aulas-ep-time">54 min</span>
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="aulas-ep-btn" data-ep="2"
+                            data-title="Rituais de preparação e proteção"
+                            data-desc="Aprenda os rituais fundamentais de preparação espiritual antes de adentrar o trabalho com as Juremas."
+                            data-dur="62 min"
+                            data-module="Módulo 1"
+                            data-num="Aula 3"
+                            data-thumb="https://img.youtube.com/vi/RylLBe8yAwc/hqdefault.jpg"
+                            data-video="https://www.youtube.com/embed/RylLBe8yAwc?autoplay=1">
+                            <span class="aulas-ep-num-badge">3</span>
+                            <span class="aulas-ep-info">
+                                <span class="aulas-ep-name">Rituais de preparação e proteção</span>
+                                <span class="aulas-ep-time">62 min</span>
+                            </span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="aulas-module" data-module="1">
+                <button class="aulas-module-toggle" aria-expanded="false">
+                    <span class="aulas-module-name">Módulo 2 — A Magia das Ervas</span>
+                    <svg class="aulas-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <ul class="aulas-episode-list" role="list" hidden>
+                    <li>
+                        <button class="aulas-ep-btn" data-ep="3"
+                            data-title="Ervas sagradas das Juremas"
+                            data-desc="As plantas aliadas do povo das Juremas — identificação, colheita, preparo e uso nos rituais."
+                            data-dur="55 min"
+                            data-module="Módulo 2"
+                            data-num="Aula 4"
+                            data-thumb="https://img.youtube.com/vi/RylLBe8yAwc/hqdefault.jpg"
+                            data-video="https://www.youtube.com/embed/RylLBe8yAwc?autoplay=1">
+                            <span class="aulas-ep-num-badge">4</span>
+                            <span class="aulas-ep-info">
+                                <span class="aulas-ep-name">Ervas sagradas das Juremas</span>
+                                <span class="aulas-ep-time">55 min</span>
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="aulas-ep-btn" data-ep="4"
+                            data-title="Defumações e banhos de ervas"
+                            data-desc="Passo a passo para preparar defumações e banhos ritualísticos com as ervas do povo das Juremas."
+                            data-dur="47 min"
+                            data-module="Módulo 2"
+                            data-num="Aula 5"
+                            data-thumb="https://img.youtube.com/vi/RylLBe8yAwc/hqdefault.jpg"
+                            data-video="https://www.youtube.com/embed/RylLBe8yAwc?autoplay=1">
+                            <span class="aulas-ep-num-badge">5</span>
+                            <span class="aulas-ep-info">
+                                <span class="aulas-ep-name">Defumações e banhos de ervas</span>
+                                <span class="aulas-ep-time">47 min</span>
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="aulas-ep-btn" data-ep="5"
+                            data-title="Altar de ervas e oferendas"
+                            data-desc="Como montar e ativar um altar dedicado às Juremas com flores, ervas e elementos naturais."
+                            data-dur="51 min"
+                            data-module="Módulo 2"
+                            data-num="Aula 6"
+                            data-thumb="https://img.youtube.com/vi/RylLBe8yAwc/hqdefault.jpg"
+                            data-video="https://www.youtube.com/embed/RylLBe8yAwc?autoplay=1">
+                            <span class="aulas-ep-num-badge">6</span>
+                            <span class="aulas-ep-info">
+                                <span class="aulas-ep-name">Altar de ervas e oferendas</span>
+                                <span class="aulas-ep-time">51 min</span>
+                            </span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="aulas-module" data-module="2">
+                <button class="aulas-module-toggle" aria-expanded="false">
+                    <span class="aulas-module-name">Módulo 3 — Vivências e Incorporação</span>
+                    <svg class="aulas-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <ul class="aulas-episode-list" role="list" hidden>
+                    <li>
+                        <button class="aulas-ep-btn" data-ep="6"
+                            data-title="Preparando o corpo para a vivência"
+                            data-desc="Exercícios, respiração e intenção: como se preparar física e espiritualmente para a incorporação."
+                            data-dur="38 min"
+                            data-module="Módulo 3"
+                            data-num="Aula 7"
+                            data-thumb="https://img.youtube.com/vi/RylLBe8yAwc/hqdefault.jpg"
+                            data-video="https://www.youtube.com/embed/RylLBe8yAwc?autoplay=1">
+                            <span class="aulas-ep-num-badge">7</span>
+                            <span class="aulas-ep-info">
+                                <span class="aulas-ep-name">Preparando o corpo para a vivência</span>
+                                <span class="aulas-ep-time">38 min</span>
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="aulas-ep-btn" data-ep="7"
+                            data-title="Cantos e pontos das Juremas"
+                            data-desc="Os pontos cantados que evocam as entidades — origem, letra, melodia e como cantar com respeito."
+                            data-dur="66 min"
+                            data-module="Módulo 3"
+                            data-num="Aula 8"
+                            data-thumb="https://img.youtube.com/vi/RylLBe8yAwc/hqdefault.jpg"
+                            data-video="https://www.youtube.com/embed/RylLBe8yAwc?autoplay=1">
+                            <span class="aulas-ep-num-badge">8</span>
+                            <span class="aulas-ep-info">
+                                <span class="aulas-ep-name">Cantos e pontos das Juremas</span>
+                                <span class="aulas-ep-time">66 min</span>
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="aulas-ep-btn" data-ep="8"
+                            data-title="A vivência guiada — Imersão completa"
+                            data-desc="A experiência central da imersão: uma vivência conduzida ao vivo por Vanessa Tikura com o povo das Juremas."
+                            data-dur="90 min"
+                            data-module="Módulo 3"
+                            data-num="Aula 9"
+                            data-thumb="https://img.youtube.com/vi/RylLBe8yAwc/hqdefault.jpg"
+                            data-video="https://www.youtube.com/embed/RylLBe8yAwc?autoplay=1">
+                            <span class="aulas-ep-num-badge">9</span>
+                            <span class="aulas-ep-info">
+                                <span class="aulas-ep-name">A vivência guiada — Imersão completa</span>
+                                <span class="aulas-ep-time">90 min</span>
+                            </span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="aulas-module" data-module="3">
+                <button class="aulas-module-toggle" aria-expanded="false">
+                    <span class="aulas-module-name">Módulo 4 — Encerramento e Integração</span>
+                    <svg class="aulas-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <ul class="aulas-episode-list" role="list" hidden>
+                    <li>
+                        <button class="aulas-ep-btn" data-ep="9"
+                            data-title="Como integrar a experiência no cotidiano"
+                            data-desc="Práticas simples para manter a conexão com as Juremas depois da imersão — no dia a dia, na casa e na espiritualidade."
+                            data-dur="42 min"
+                            data-module="Módulo 4"
+                            data-num="Aula 10"
+                            data-thumb="https://img.youtube.com/vi/RylLBe8yAwc/hqdefault.jpg"
+                            data-video="https://www.youtube.com/embed/RylLBe8yAwc?autoplay=1">
+                            <span class="aulas-ep-num-badge">10</span>
+                            <span class="aulas-ep-info">
+                                <span class="aulas-ep-name">Como integrar a experiência no cotidiano</span>
+                                <span class="aulas-ep-time">42 min</span>
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="aulas-ep-btn" data-ep="10"
+                            data-title="Cuidados pós-vivência e fechamento"
+                            data-desc="Rituais de fechamento energético, limpeza e cuidados essenciais após a imersão."
+                            data-dur="35 min"
+                            data-module="Módulo 4"
+                            data-num="Aula 11"
+                            data-thumb="https://img.youtube.com/vi/RylLBe8yAwc/hqdefault.jpg"
+                            data-video="https://www.youtube.com/embed/RylLBe8yAwc?autoplay=1">
+                            <span class="aulas-ep-num-badge">11</span>
+                            <span class="aulas-ep-info">
+                                <span class="aulas-ep-name">Cuidados pós-vivência e fechamento</span>
+                                <span class="aulas-ep-time">35 min</span>
+                            </span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="aulas-ep-btn" data-ep="11"
+                            data-title="Encerramento — Uma palavra de Vanessa Tikura"
+                            data-desc="Mensagem final de Vanessa Tikura com gratidão, bênção e os próximos passos na sua jornada espiritual."
+                            data-dur="22 min"
+                            data-module="Módulo 4"
+                            data-num="Aula 12"
+                            data-thumb="https://img.youtube.com/vi/RylLBe8yAwc/hqdefault.jpg"
+                            data-video="https://www.youtube.com/embed/RylLBe8yAwc?autoplay=1">
+                            <span class="aulas-ep-num-badge">12</span>
+                            <span class="aulas-ep-info">
+                                <span class="aulas-ep-name">Encerramento — Uma palavra de Vanessa Tikura</span>
+                                <span class="aulas-ep-time">22 min</span>
+                            </span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </aside>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="database.js"></script>
+<script src="aulas.js"></script>
+<script src="tk-header.js"></script>
+</body>
+</html>

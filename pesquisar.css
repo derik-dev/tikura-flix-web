@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{box-sizing:border-box;}
+body{margin:0;background:#050505;color:#fff;font-family:'Poppins',sans-serif;min-height:100vh;}
+a{text-decoration:none;color:inherit;}
+svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+
+/* Header */
+.ps-header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:28px;padding:16px 6%;background:linear-gradient(180deg,rgba(5,5,5,0.96),rgba(5,5,5,0.72));border-bottom:1px solid rgba(255,255,255,0.07);backdrop-filter:blur(12px);}
+.ps-logo{font-size:1.4rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;}
+.ps-logo span{color:#e50914;}
+.ps-nav{display:flex;gap:24px;}
+.ps-nav a{font-size:0.88rem;color:rgba(255,255,255,0.58);transition:color 0.2s;}
+.ps-nav a:hover,.ps-nav a.active{color:#fff;}
+.ps-avatar{margin-left:auto;width:36px;height:36px;border-radius:50%;background:#e50914;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;cursor:pointer;flex-shrink:0;}
+
+/* Main */
+.ps-main{padding:100px 6% 80px;max-width:1200px;margin:0 auto;}
+
+/* Search */
+.ps-search-wrap{margin-bottom:24px;}
+.ps-search-box{position:relative;display:flex;align-items:center;}
+.ps-search-icon{position:absolute;left:18px;width:20px;height:20px;color:rgba(255,255,255,0.4);}
+.ps-input{width:100%;background:#111;border:1px solid rgba(255,255,255,0.12);border-radius:10px;color:#fff;font-family:'Poppins',sans-serif;font-size:1.05rem;padding:16px 48px 16px 52px;outline:none;transition:border-color 0.2s;}
+.ps-input:focus{border-color:#e50914;}
+.ps-input::placeholder{color:rgba(255,255,255,0.3);}
+.ps-clear{position:absolute;right:16px;background:none;border:none;color:rgba(255,255,255,0.4);font-size:1rem;cursor:pointer;padding:4px;}
+.ps-clear:hover{color:#fff;}
+
+/* Filtros */
+.ps-filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;}
+.ps-filter{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:20px;color:rgba(255,255,255,0.65);font-family:'Poppins',sans-serif;font-size:0.84rem;padding:6px 16px;cursor:pointer;transition:all 0.2s;}
+.ps-filter:hover{border-color:rgba(255,255,255,0.22);color:#fff;}
+.ps-filter.active{background:#e50914;border-color:#e50914;color:#fff;}
+
+/* Estados */
+.ps-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:80px 20px;color:rgba(255,255,255,0.25);}
+.ps-empty svg{width:52px;height:52px;}
+.ps-empty p{margin:0;font-size:1rem;}
+.ps-no-results{padding:60px 20px;text-align:center;}
+.ps-no-results p{margin:0 0 8px;font-size:1rem;color:rgba(255,255,255,0.7);}
+.ps-no-results small{color:rgba(255,255,255,0.35);font-size:0.85rem;}
+
+/* Resultados */
+.ps-results-count{margin:0 0 20px;font-size:0.88rem;color:rgba(255,255,255,0.45);}
+.ps-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;}
+
+/* Card resultado */
+.ps-card{display:flex;flex-direction:column;background:#111;border:1px solid rgba(255,255,255,0.07);border-radius:10px;overflow:hidden;transition:transform 0.25s,box-shadow 0.25s;}
+.ps-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.6);}
+.ps-card-thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:#1a1a1a;}
+.ps-card-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.3s;}
+.ps-card:hover .ps-card-thumb img{transform:scale(1.05);}
+.ps-card-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);opacity:0;transition:opacity 0.2s;}
+.ps-card-play span{width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,0.9);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#111;padding-left:3px;}
+.ps-card:hover .ps-card-play{opacity:1;}
+.ps-card-body{padding:14px 16px;}
+.ps-card-body h3{margin:0 0 4px;font-size:0.92rem;font-weight:600;line-height:1.3;}
+.ps-card-tag{display:inline-block;font-size:0.72rem;color:rgba(255,255,255,0.4);background:rgba(255,255,255,0.07);border-radius:4px;padding:2px 8px;}
+
+@media(max-width:700px){
+    .ps-header{padding:14px 5%;}
+    .ps-nav{display:none;}
+    .ps-main{padding:86px 5% 60px;}
+    .ps-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:420px){
+    .ps-grid{grid-template-columns:1fr;}
+}

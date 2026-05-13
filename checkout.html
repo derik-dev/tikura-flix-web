@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assinar Tikura Flix</title>
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="tk-header.css">
+</head>
+<body>
+    <header class="tkh">
+        <a href="cursos.html" class="tkh-logo">Tikura <span>Flix</span></a>
+        <nav class="tkh-nav">
+            <a href="meus-cursos.html">Meus cursos</a>
+            <a href="pesquisar.html">Pesquisar</a>
+            <a href="comunidade.html">Comunidades</a>
+        </nav>
+        <a href="conta.html" class="tkh-user" id="tkh-user" aria-label="Minha conta">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </a>
+    </header>
+
+    <main class="checkout-page">
+        <section class="checkout-intro">
+            <span class="checkout-kicker">Assinatura anual</span>
+            <h1>Faça parte da Tikura Flix</h1>
+            <p>Acesso completo às imersões, vivências, vídeo-aulas, apostilas e materiais especiais por 12 meses.</p>
+        </section>
+
+        <section class="checkout-grid" aria-label="Finalizar assinatura">
+            <form class="checkout-form" action="#" method="post" data-checkout-form>
+                <div class="checkout-panel">
+                    <h2>Seus dados</h2>
+                    <div class="field-grid">
+                        <label>
+                            Nome completo
+                            <input type="text" name="nome" placeholder="Seu nome" required>
+                        </label>
+                        <label>
+                            E-mail
+                            <input type="email" name="email" placeholder="seuemail@exemplo.com" required>
+                        </label>
+                        <label>
+                            WhatsApp
+                            <input type="tel" name="telefone" placeholder="(00) 00000-0000" required>
+                        </label>
+                        <label>
+                            CPF
+                            <input type="text" name="cpf" placeholder="000.000.000-00" required>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="checkout-panel">
+                    <h2>Pagamento</h2>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="pagamento" value="pix" checked>
+                            <span>Pix</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="pagamento" value="cartao">
+                            <span>Cartao de credito</span>
+                        </label>
+                    </div>
+
+                    <label>
+                        Cupom
+                        <input type="text" name="cupom" placeholder="Digite seu cupom, se tiver">
+                    </label>
+
+                    <p class="checkout-status" data-checkout-status hidden></p>
+                    <button class="checkout-submit" type="submit">Finalizar assinatura</button>
+                    <p class="checkout-note">Depois da confirmacao, os dados de acesso serao enviados para o e-mail informado.</p>
+                </div>
+            </form>
+
+            <aside class="order-summary" aria-label="Resumo da assinatura">
+                <img src="http://www.tikura.com.br/wp-content/uploads/2026/02/allc.png" alt="Cursos Tikura Flix">
+                <div class="summary-content">
+                    <span class="summary-label">Plano selecionado</span>
+                    <h2>Tikura Flix Anual</h2>
+                    <p class="summary-price">R$ --,--</p>
+                    <p class="summary-installment">Valor da assinatura anual</p>
+
+                    <ul class="summary-list">
+                        <li>Acesso por 12 meses</li>
+                        <li>Todas as imersoes ja lancadas</li>
+                        <li>Apostilas, vivencias e trilhas musicais</li>
+                        <li>Novos conteudos adicionados com frequencia</li>
+                    </ul>
+                </div>
+            </aside>
+        </section>
+
+        <section class="checkout-benefits" aria-label="Beneficios inclusos">
+            <article>
+                <span>01</span>
+                <h3>Acesso imediato</h3>
+                <p>Entre na plataforma e comece pelos cursos que mais combinam com seu momento.</p>
+            </article>
+            <article>
+                <span>02</span>
+                <h3>Conteudo completo</h3>
+                <p>Estude com aulas, apostilas e vivencias reunidas em um unico lugar.</p>
+            </article>
+            <article>
+                <span>03</span>
+                <h3>Comunidade</h3>
+                <p>Caminhe junto com outras alunas em uma jornada de pratica e desenvolvimento.</p>
+            </article>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="database.js"></script>
+    <script src="checkout.js"></script>
+    <script src="tk-header.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+.tkh{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;padding:0 5%;height:64px;background:rgba(5,5,5,0.96);border-bottom:1px solid rgba(255,255,255,0.07);backdrop-filter:blur(14px);}
+.tkh-logo{font-size:1.3rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:#fff;text-decoration:none;flex-shrink:0;}
+.tkh-logo span{color:#e50914;}
+.tkh-nav{display:flex;align-items:center;gap:32px;position:absolute;left:50%;transform:translateX(-50%);}
+.tkh-nav a{font-size:0.9rem;font-weight:500;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s;white-space:nowrap;}
+.tkh-nav a:hover,.tkh-nav a.tkh-active{color:#fff;}
+.tkh-user{margin-left:auto;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,0.18);background:rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);text-decoration:none;flex-shrink:0;transition:border-color 0.2s,background 0.2s;}
+.tkh-user:hover{border-color:rgba(255,255,255,0.4);background:rgba(255,255,255,0.13);}
+.tkh-user svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+
+@media(max-width:700px){
+    .tkh{padding:0 5%;}
+    .tkh-nav{gap:18px;}
+    .tkh-nav a{font-size:0.8rem;}
+}
+@media(max-width:480px){
+    .tkh-nav{display:none;}
+}

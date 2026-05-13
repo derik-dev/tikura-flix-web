@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisar | Tikura Flix</title>
+    <link rel="stylesheet" href="pesquisar.css">
+    <link rel="stylesheet" href="tk-header.css">
+</head>
+<body>
+    <header class="tkh">
+        <a href="cursos.html" class="tkh-logo">Tikura <span>Flix</span></a>
+        <nav class="tkh-nav">
+            <a href="meus-cursos.html">Meus cursos</a>
+            <a href="pesquisar.html">Pesquisar</a>
+            <a href="comunidade.html">Comunidades</a>
+        </nav>
+        <a href="conta.html" class="tkh-user" id="tkh-user" aria-label="Minha conta">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </a>
+    </header>
+
+    <main class="ps-main">
+
+        <!-- Barra de pesquisa -->
+        <div class="ps-search-wrap">
+            <div class="ps-search-box">
+                <svg class="ps-search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                <input type="search" id="ps-input" class="ps-input" placeholder="Pesquisar cursos, imersões, temas..." autocomplete="off" autofocus>
+                <button class="ps-clear" id="ps-clear" hidden aria-label="Limpar">&#10005;</button>
+            </div>
+        </div>
+
+        <!-- Filtros -->
+        <div class="ps-filters" id="ps-filters">
+            <button class="ps-filter active" data-filter="todos">Todos</button>
+            <button class="ps-filter" data-filter="imersao">Imersões</button>
+            <button class="ps-filter" data-filter="cigano">Cigano</button>
+            <button class="ps-filter" data-filter="magia">Magia</button>
+            <button class="ps-filter" data-filter="juremas">Juremas</button>
+            <button class="ps-filter" data-filter="tarot">Tarô</button>
+        </div>
+
+        <!-- Estado vazio (inicial) -->
+        <div class="ps-empty" id="ps-empty-state">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <p>Digite algo para encontrar cursos e imersões</p>
+        </div>
+
+        <!-- Sem resultados -->
+        <div class="ps-no-results" id="ps-no-results" hidden>
+            <p>Nenhum resultado para "<span id="ps-no-results-term"></span>"</p>
+            <small>Tente outro termo ou navegue pelos cursos</small>
+        </div>
+
+        <!-- Resultados -->
+        <div class="ps-results" id="ps-results" hidden>
+            <p class="ps-results-count" id="ps-results-count"></p>
+            <div class="ps-grid" id="ps-grid"></div>
+        </div>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="database.js"></script>
+    <script src="pesquisar.js"></script>
+    <script src="tk-header.js"></script>
+</body>
+</html>
