@@ -37,6 +37,9 @@ a{color:inherit;}
 .auth-submit:hover{background:#b20710;transform:translateY(-2px);box-shadow:0 16px 38px rgba(229,9,20,0.34);}
 .auth-submit:disabled{cursor:not-allowed;opacity:0.72;transform:none;box-shadow:none;}
 .auth-switch{margin:24px 0 0!important;text-align:center;color:#bdbdbd!important;font-size:0.95rem;}
+.auth-password-wrap{position:relative;display:flex;align-items:center;}
+.auth-password-wrap input{flex:1;padding-right:44px;}
+.auth-toggle-senha{position:absolute;right:10px;border:0;background:none;cursor:pointer;font-size:1.1rem;padding:0;line-height:1;color:#aaa;}
 
 @media(max-width:560px){
     .auth-header{padding:22px 0;}
